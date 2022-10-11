@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/fontawesome.min.css" >
+    <script src="https://cdn.rawgit.com/serratus/quaggaJS/0420d5e0/dist/quagga.min.js"></script>
+    
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <section class="pos">
+
+        
+        <div class="container">
+
+            <div class="cart-modal" id="cart-modal">
+
+                
+                
+                <div class="cart" id="cart">
+                    <div class="cart-head">
+                        <span>My Cart</span> <div><i class=" fa fa-close" id="arrow"></i></div>
+                    </div>
+                    <div class="cart-container">
+                       
+
+<!-- Tab content -->
+<div id="London" class="tabcontent">
+  <div class="cart-item" id="cart-items">
+                            <table class="cart-table" id="cart-table">
+                                <thead id="cart-thead">
+                                    <tr>
+                                        <th>
+                                            Item
+                                        </th>
+                                        <th>
+                                            Qty
+                                        </th>
+                                        <th>
+                                            Price
+                                        </th>
+                                    </tr>
+                                    
+                                </thead>
+                                <tbody id="cart-tbody">
+                                    
+                                </tbody>
+                                
+                            </table>
+                            
+                        </div>
+                        <div class="total"><h2>Total</h2> <h2 ><span>&#8358;</span><span id="total-amount">0</span></h2></div>
+                        <div class="cart-info-btns">
+                        <button class="clear-cart">Clear Cart</button>
+                        <button class="tablinks checkout" onclick="openCity(event, 'Paris')">Checkout</button>
+                    </div>
+</div>
+
+<div id="Paris" class="tabcontent">
+    <button class="tablinks checkout-back" onclick="openCity(event, 'London')"><i class="fa checkout-back fa-chevron-left"></i>Checkout</button>
+  <h3>Payment</h3>
+  <div class="pay-method-box">
+    <div class="cash-container" >
+
+        <label class="pay-method">Cash
+            <input type="checkbox" class="cart-checkbox" onchange="cbChange(this)" checked="checked">
+            <span class="checkmark" ></span>
+            
+        </label>
+
+        <div id="cash-box"><input type="number" placeholder="Amount Recieved" id="cash-input" oninput="cashInput(this)">
+        <div class="cart-change"><span >Change: </span><span>&#8358;</span><span id="change"></span></div>
+    </div>
+    </div>
+ <div>
+
+     <label class="pay-method">Bank Transfer
+         <input type="checkbox" class="cart-checkbox bank-transfer" onchange="cbChange(this)" >
+         <span class="checkmark" ></span>
+        </label>
+    </div>
+
+    <div>
+
+        
+        <label class="pay-method">Card
+            <input type="checkbox" class="cart-checkbox card-payment" onchange="cbChange(this)">
+            <span class="checkmark" ></span>
+        </label>
+    </div>
+    
+  </div>
+  <div class="cart-info-btns">
+                        
+                        <button class="tablinks checkout" onclick="openCity(event, 'Paris')">Pay Now</button>
+                    </div>
+</div>
+
+<div id="Tokyo" class="tabcontent">
+  <h3>Tokyo</h3>
+  <p>Tokyo is the capital of Japan.</p>
+</div>
+ <div class="tab">
+  <button class="tablinks" onclick="openCity(event, 'London')" id="defaultOpen"></button>
+  
+</div>
+
+                        
+                    </div>
+
+                    
+                    
+                    
+                </div>
+            </div>
+            <div class="topbar">
+                <div class="logo-box"><img class="logo" src="assets/smlogo1.png" alt="stock_manager"></div>
+                <div class="title"><p>POS</p></div>
+                
+            </div>
+            <hr style="width:100%", size="2", color=#d1d3d4>  
+            <div class="row">
+                <input class="search" placeholder="Search"/>
+                <div class="icon-box">
+
+                    <i class="fa-solid fa-qrcode"></i>
+                    <div class="cart-info" id="cart-info">
+                        <button class="cart-qty" id="cart-qty">0</button>
+                        <i class="fa fa-shopping-cart"></i>
+
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div class="row-2">
+                <div class="card">
+                    
+                    <details class="dropdown" >
+                        <summary role="button">
+                        <a class="button" ><i class="fa-solid fa-ellipsis"></i></a>
+                        </summary>
+                        <ul class="dropdown-box" id="dropdown-box">
+                        <li><a> <i class="fa-solid qtyBtn minus fa-square-minus"></i></a></li>
+                        <input class="quantity" id="quantity" type="number" value="1" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+                        <li><i class="fa-solid qtyBtn plus fa-square-plus"></i></li>
+                        
+                    </ul>
+                    </details>
+                    <div class="img-card">
+                        <img class="item-img" src="assets/Layer 1.png" alt="banana">
+                    </div>
+                    <div class="item-details">
+                        <p id="product-name">Banana</p>
+                        <div class="price-box"> <span>&#8358;</span><p id="price">500</p></div>
+                        
+                        <button class="cart-btn btn">Add</button>
+                    </div>
+
+                </div>
+                <div class="card">
+                        <details class="dropdown" >
+                        <summary role="button">
+                        <a class="button" id="qty-btn"><i class="fa-solid fa-ellipsis"></i></a>
+                        </summary>
+                        <ul class="dropdown-box" id="dropdown-box">
+                        <li><a> <i class="fa-solid qtyBtn minus fa-square-minus"></i></a></li>
+                        <input class="quantity" id="quantity" type="number" value="1" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+                        <li><i class="fa-solid qtyBtn plus fa-square-plus"></i></li>
+                        
+                    </ul>
+                    </details>
+                    
+                    <div class="img-card">
+                        <img class="item-img" src="assets/Layer 2.png" alt="banana">
+                    </div>
+                    <div class="item-details">
+                        <p id="product-name">Eggs</p>
+                        <div class="price-box"> <span>&#8358;</span><p id="price">1000</p></div>
+                        <button class="cart-btn btn">Add</button>
+                    </div>
+
+                </div>
+                <div class="card">
+                    <details class="dropdown" >
+                        <summary role="button">
+                        <a class="button" id="qty-btn"><i class="fa-solid fa-ellipsis"></i></a>
+                        </summary>
+                        <ul class="dropdown-box" id="dropdown-box">
+                        <li><a> <i class="fa-solid qtyBtn minus fa-square-minus"></i></a></li>
+                        <input class="quantity" id="quantity" type="number" value="1" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+                        <li><i class="fa-solid qtyBtn plus fa-square-plus"></i></li>
+                        
+                    </ul>
+                    </details>
+                    <div class="img-card">
+                        <img class="item-img" src="assets/Layer 3.png" alt="banana">
+                    </div>
+                    <div class="item-details">
+                        <p id="product-name">Heinz KetchUp</p>
+                        <div class="price-box"> <span>&#8358;</span><p id="price">1500</p></div>
+                        
+                        <button class="cart-btn btn">Add</button>
+                    </div>
+
+                </div>
+                <div class="card">
+                    <details class="dropdown" >
+                        <summary role="button">
+                        <a class="button" id="qty-btn"><i class="fa-solid fa-ellipsis"></i></a>
+                        </summary>
+                        <ul class="dropdown-box" id="dropdown-box">
+                        <li><a> <i class="fa-solid qtyBtn minus fa-square-minus"></i></a></li>
+                        <input class="quantity" id="quantity" type="number" value="1" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+                        <li><i class="fa-solid qtyBtn plus fa-square-plus"></i></li>
+                        
+                    </ul>
+                    </details>
+                    <div class="img-card">
+                        <img class="item-img" src="assets/Layer 4.png" alt="banana">
+                    </div>
+                    <div class="item-details">
+                        <p id="product-name">Quaker Oats</p>
+                        <div class="price-box"> <span>&#8358;</span><p id="price">2000</p></div>
+                        
+                        <button class="cart-btn btn">Add</button>
+                    </div>
+
+                </div>
+                <div class="card">
+                    <details class="dropdown" >
+                        <summary role="button">
+                        <a class="button" id="qty-btn"><i class="fa-solid fa-ellipsis"></i></a>
+                        </summary>
+                        <ul class="dropdown-box" id="dropdown-box">
+                        <li><a> <i class="fa-solid qtyBtn minus fa-square-minus"></i></a></li>
+                        <input class="quantity" id="quantity" type="number" value="1" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+                        <li><i class="fa-solid qtyBtn plus fa-square-plus"></i></li>
+                        
+                    </ul>
+                    </details>
+                    <div class="img-card">
+                        <img class="item-img" src="assets/Layer 5.png" alt="banana">
+                    </div>
+                    <div class="item-details">
+                        <p id="product-name">Ground Meat</p>
+                        <div class="price-box"> <span>&#8358;</span><p id="price">2000</p></div>
+                       
+                        <button class="cart-btn btn">Add</button>
+                    </div>
+
+                </div>
+                <div class="card">
+                    <details class="dropdown" >
+                        <summary role="button">
+                        <a class="button" id="qty-btn"><i class="fa-solid fa-ellipsis"></i></a>
+                        </summary>
+                        <ul class="dropdown-box" id="dropdown-box">
+                        <li><a> <i class="fa-solid qtyBtn minus fa-square-minus"></i></a></li>
+                        <input class="quantity" id="quantity" type="number" value="1" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+                        <li><i class="fa-solid qtyBtn plus fa-square-plus"></i></li>
+                    </ul>
+                    </details>
+                    <div class="img-card">
+                        <img class="item-img" src="assets/Layer 6.png" alt="banana">
+                    </div>
+                    <div class="item-details">
+                       <marquee behavior="alternate" scrollamount="1"> <p id="product-name">Starducks Coffee</p></marquee>
+                       <div class="price-box"> <span>&#8358;</span><p id="price">500</p></div> 
+                       
+                        <button class="cart-btn btn">Add</button>
+                    </div>
+
+                </div>
+                <div class="card">
+                                        <details class="dropdown" >
+                        <summary role="button">
+                        <a class="button" id="qty-btn"><i class="fa-solid fa-ellipsis"></i></a>
+                        </summary>
+                        <ul class="dropdown-box" id="dropdown-box">
+                        <li><a> <i class="fa-solid qtyBtn minus fa-square-minus"></i></a></li>
+                        <input class="quantity" id="quantity" type="number" value="1" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+                        <li><i class="fa-solid qtyBtn plus fa-square-plus"></i></li>
+                        
+                    </ul>
+                    </details>
+                    <div class="img-card">
+                        <img class="item-img" src="assets/Layer 7.png" alt="banana">
+                    </div>
+                    <div class="item-details">
+                        <marquee behavior="alternate" scrollamount="1"><p id="product-name">Campbells Tomato</p></marquee>
+                        <div class="price-box"> <span>&#8358;</span><p id="price">2000</p></div>
+                        
+                        <button class="cart-btn btn">Add</button>
+                    </div>
+
+                </div>
+                <div class="card">
+                                        <details class="dropdown" >
+                        <summary role="button">
+                        <a class="button" id="qty-btn"><i class="fa-solid fa-ellipsis"></i></a>
+                        </summary>
+                        <ul class="dropdown-box" id="dropdown-box">
+                        <li><a> <i class="fa-solid qtyBtn minus fa-square-minus"></i></a></li>
+                        <input class="quantity" id="quantity" type="number" value="1" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+                        <li><i class="fa-solid qtyBtn plus fa-square-plus"></i></li>
+                        
+                    </ul>
+                    </details>
+                    <div class="img-card">
+                        <img class="item-img" src="assets/Layer 8.png" alt="banana">
+                    </div>
+                    <div class="item-details">
+                        <p id="product-name">Pacify Bread</p>
+                        <div class="price-box"> <span>&#8358;</span><p id="price">500</p></div>
+                        
+                        <button class="cart-btn btn">Add</button>
+                    </div>
+
+                </div>
+                <div class="card">
+                                        <details class="dropdown" >
+                        <summary role="button">
+                        <a class="button" id="qty-btn"><i class="fa-solid fa-ellipsis"></i></a>
+                        </summary>
+                        <ul class="dropdown-box" id="dropdown-box">
+                        <li><a> <i class="fa-solid qtyBtn minus fa-square-minus"></i></a></li>
+                        <input class="quantity" id="quantity" type="number" value="1" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+                        <li><i class="fa-solid qtyBtn plus fa-square-plus"></i></li>
+                    </ul>
+                    </details>
+                    <div class="img-card">
+                        <img class="item-img" src="assets/Layer 9.png" alt="banana">
+                    </div>
+                    <div class="item-details">
+                        <p id="product-name">Robot Milk</p>
+                        <div class="price-box"> <span>&#8358;</span><p id="price">2500</p></div>
+                       
+                        <button class="cart-btn btn">Add</button>
+                    </div>
+
+                </div>
+                <div class="card">
+                                        <details class="dropdown" >
+                        <summary role="button">
+                        <a class="button" id="qty-btn"><i class="fa-solid fa-ellipsis"></i></a>
+                        </summary>
+                        <ul class="dropdown-box" id="dropdown-box">
+                        <li><a> <i class="fa-solid qtyBtn minus fa-square-minus"></i></a></li>
+                        <input class="quantity" id="quantity" type="number" value="1" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+                        <li><i class="fa-solid qtyBtn plus fa-square-plus"></i></li>
+                        
+                    </ul>
+                    </details>
+                    <div class="img-card">
+                        <img class="item-img" src="assets/Layer 10.png" alt="banana">
+                    </div>
+                    <div class="item-details">
+                        
+                        <marquee behavior="alternate" scrollamount="1"><p id="product-name">Campbells Tomato</p></marquee>
+                        <div class="price-box"> <span>&#8358;</span><p id="price">2000</p></div>
+                        
+                        <button class="cart-btn btn">Add</button>
+                    </div>
+
+                </div>
+                <div class="card">
+                                        <details class="dropdown" >
+                        <summary role="button">
+                        <a class="button" id="qty-btn"><i class="fa-solid fa-ellipsis"></i></a>
+                        </summary>
+                        <ul class="dropdown-box" id="dropdown-box">
+                        <li><a> <i class="fa-solid qtyBtn minus fa-square-minus"></i></a></li>
+                        <input class="quantity" id="quantity" type="number" value="1" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+                        <li><i class="fa-solid qtyBtn plus fa-square-plus"></i></li>
+                        
+                    </ul>
+                    </details>
+                    <div class="img-card">
+                        <img class="item-img" src="assets/Layer 11.png" alt="banana">
+                    </div>
+                    <div class="item-details">
+                        <p id="product-name">Pacify Bread</p>
+                        <div class="price-box"> <span>&#8358;</span><p id="price">500</p></div>
+                       
+                        <button class="cart-btn btn">Add</button>
+                    </div>
+
+                </div>
+                <div class="card">
+                                        <details class="dropdown" >
+                        <summary role="button">
+                        <a class="button" id="qty-btn"><i class="fa-solid fa-ellipsis"></i></a>
+                        </summary>
+                        <ul class="dropdown-box" id="dropdown-box">
+                        <li><a> <i class="fa-solid qtyBtn minus fa-square-minus"></i></a></li>
+                        <input class="quantity" id="quantity" type="number" value="1" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+                        <li><i class="fa-solid qtyBtn plus fa-square-plus"></i></li>
+                        
+                    </ul>
+                    </details>
+                    <div class="img-card">
+                        <img class="item-img" src="assets/Layer 12.png" alt="banana">
+                    </div>
+                    <div class="item-details">
+                        <p id="product-name">Robot Milk</p>
+                        <div class="price-box"> <span>&#8358;</span><p id="price">2500</p></div>
+                     
+                        <button class="cart-btn btn">Add</button>
+                    </div>
+
+                </div>
+                <div class="card">
+                                        <details class="dropdown" >
+                        <summary role="button">
+                        <a class="button" id="qty-btn"><i class="fa-solid fa-ellipsis"></i></a>
+                        </summary>
+                        <ul class="dropdown-box" id="dropdown-box">
+                        <li><a> <i class="fa-solid qtyBtn minus fa-square-minus"></i></a></li>
+                        <input class="quantity" id="quantity" type="number" value="1" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+                        <li><i class="fa-solid qtyBtn plus fa-square-plus"></i></li>
+                        
+                    </ul>
+                    </details>
+                    <div class="img-card">
+                        <img class="item-img" src="assets/Layer 11.png" alt="banana">
+                    </div>
+                    <div class="item-details">
+                        <marquee behavior="alternate" scrollamount="1"><p id="product-name">Campbells Tomato</p></marquee>
+                        <div class="price-box"> <span>&#8358;</span><p id="price">2000</p></div>
+                       
+                        <button class="cart-btn btn">Add</button>
+                    </div>
+
+                </div>
+                <div class="card">
+                                        <details class="dropdown" >
+                        <summary role="button">
+                        <a class="button" id="qty-btn"><i class="fa-solid fa-ellipsis"></i></a>
+                        </summary>
+                        <ul class="dropdown-box" id="dropdown-box">
+                        <li><a> <i class="fa-solid qtyBtn minus fa-square-minus"></i></a></li>
+                        <input class="quantity" id="quantity" type="number" value="1" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+                        <li><i class="fa-solid qtyBtn plus fa-square-plus"></i></li>
+                        
+                    </ul>
+                    </details>
+                    <div class="img-card">
+                        <img class="item-img" src="assets/Layer 12.png" alt="banana">
+                    </div>
+                    <div class="item-details">
+                        <p id="product-name">Pacify Bread</p>
+                        <div class="price-box"> <span>&#8358;</span><p id="price">500</p></div>
+                        
+                        <button class="cart-btn btn">Add</button>
+                    </div>
+
+                </div>
+                <div class="card">
+                                        <details class="dropdown" >
+                        <summary role="button">
+                        <a class="button" id="qty-btn"><i class="fa-solid fa-ellipsis"></i></a>
+                        </summary>
+                        <ul class="dropdown-box" id="dropdown-box">
+                        <li><a> <i class="fa-solid qtyBtn minus fa-square-minus"></i></a></li>
+                        <input class="quantity" id="quantity" type="number" value="1" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+                        <li><i class="fa-solid qtyBtn plus fa-square-plus"></i></li>
+                        
+                    </ul>
+                    </details>
+                    <div class="img-card">
+                        <img class="item-img" src="assets/Layer 13.png" alt="banana">
+                    </div>
+                    <div class="item-details">
+                        <p id="product-name">Robot Milk</p>
+                        <div class="price-box"> <span>&#8358;</span><p id="price">2500</p></div>
+                        
+                        <button class="cart-btn btn">Add</button>
+                    </div>
+
+                </div>
+                
+                
+            </div>
+
+            <div class="row-3">
+
+                <div class="pay-box">
+                    <div>
+                        <button class="pay-btn"> Pay Now</button>
+                    </div>
+                    <div class="total-box">   
+                        <span>0</span>
+                    </div>
+                </div>
+            </div>
+
+            
+            
+        </div>
+        
+    </section>
+
+    <script src="index.js"></script>
+    <script src="scanner.js"></script>
+</body>
+</html>
